@@ -4,6 +4,8 @@
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <class>dat3JPA.entities.Person</class>
     <class>dat3JPA.entities.Address</class>
+    <class>dat3JPA.entities.Fee</class>
+    <class>dat3JPA.entities.SwimStyle</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/startcode_test?zeroDateTimeBehavior=CONVERT_TO_NULL"/>
       <property name="javax.persistence.jdbc.user" value="dev"/>

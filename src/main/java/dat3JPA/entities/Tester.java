@@ -24,36 +24,43 @@ public class Tester {
     
     Person p1 = new Person("jønke", 1963);
     Person p2 = new Person("Blondie",1959);
-    Person p3 = new Person("Søren",1993);
-    Person p4 = new Person("mathias",1996);
+    
     
     
     Address a1 = new Address("Store Torv 1", 2323, "Nr.Snede");
     Address a2 = new Address("Langgade 34", 1212, "Valby");
-    Address a3 = new Address("Fredenborgvej 10", 3434, "Frederiksund");
-    Address a4 = new Address("Jyllingevej 2", 4344, "Jyllinge");
+  
     
     p1.setAddress(a1);
     p2.setAddress(a2);
     
     Fee f1 = new Fee(100);
     Fee f2 = new Fee(200);
-     Fee f3 = new Fee(300);
-     Fee f4 = new Fee(400);
+    Fee f3 = new Fee(300);
+   
     
     p1.AddFees(f1);
     p1.AddFees(f3);
     p2.AddFees(f2);
-    p4.AddFees(f1);
-    p3.AddFees(f4);
+  
     
+    SwimStyle s1 = new SwimStyle("Crawl");
+    SwimStyle s2 = new SwimStyle("ButterFly");
+    SwimStyle s3 = new SwimStyle("Breast stroke");
+    
+    p1.AddSwimStyle(s1);
+    p1.AddSwimStyle(s3);
+    p2.AddSwimStyle(s2);
     
     em.getTransaction().begin();
     em.persist(p1);
     em.persist(p2);
-    em.persist(p3);
-    em.persist(p4);
     em.getTransaction().commit();
+    
+    em.getTransaction().begin();
+    p1.removeSwimStyle(s3);
+    em.getTransaction().commit();
+    
     
     System.out.println("p1: " + p1.getP_id()+ ", " + p1.getName());
     System.out.println("p1: " + p2.getP_id()+ ", " + p2.getName());
